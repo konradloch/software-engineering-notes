@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "46c2b1fe5db43a6b",
+    "type": "split",
+    "children": [
+      {
+        "id": "6c6ad7919758b9ad",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Microservices/Microservices technologies/Cloud.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ff8e59bec566538c",
+    "type": "split",
+    "children": [
+      {
+        "id": "db7801793b4f4a16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "704a65bfc069e8ce",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "947ff0cea9439792",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f802ccf689ff2494",
+    "type": "split",
+    "children": [
+      {
+        "id": "44f5549633aa8361",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "941698dec3699824",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Microservices/Microservices technologies/Cloud.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "6c6ad7919758b9ad",
+  "lastOpenFiles": [
+    "Microservices/Microservices technologies/Cloud.md",
+    "Microservices/Microservices technologies/Containers.md",
+    "Microservices/Microservices technologies/Distributed Tracing.md",
+    "Microservices/Microservices technologies/Log Aggregation.md",
+    "Microservices/Microservices technologies/Orchiestration.md",
+    "Microservices/Microservices technologies/Streaming.md",
+    "Microservices/Microservices advantages.md",
+    "Microservices/Microservices architecture.md",
+    "Microservices/Microservices disadvantages.md",
+    "Microservices/Microservices technologies/Untitled.md"
+  ]
+}
