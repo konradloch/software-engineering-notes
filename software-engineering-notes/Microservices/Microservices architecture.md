@@ -5,6 +5,11 @@ date: 2021-10-19 19:43
 Microservices architecture is architecture where multiple independent services comunicates with each other to accomplish given bussines requirements. 
 Microservice architecure has many [[Microservices advantages]] as well as [[Microservices disadvantages]].
 
+"Microservices aren’t easy. Try the simple stuff first."
+
+#### Microservices keyconcepts
+Independent Deployability,  Modeled Around a Business Domain, Owning Their Own State, Size, Flexibility, Alignment of Architecture and Organization  ([[Microservices modeling]])
+
 #### Microservices should be used when:
 - organizations with many developers
 - SaaS application (because of high avalibility and scalling)

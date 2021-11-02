@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "6c6ad7919758b9ad",
+        "id": "d57610ebc26021f2",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Microservices/Microservices technologies/Cloud.md",
+            "file": "Linux/Java dump tools.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Microservices/Microservices technologies/Cloud.md",
+                "file": "Linux/Java dump tools.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "6c6ad7919758b9ad",
+  "active": "d57610ebc26021f2",
   "lastOpenFiles": [
+    "Linux/Java dump tools.md",
+    "Programming language/Go.md",
     "Microservices/Microservices technologies/Cloud.md",
     "Microservices/Microservices technologies/Containers.md",
     "Microservices/Microservices technologies/Distributed Tracing.md",
     "Microservices/Microservices technologies/Log Aggregation.md",
     "Microservices/Microservices technologies/Orchiestration.md",
     "Microservices/Microservices technologies/Streaming.md",
-    "Microservices/Microservices advantages.md",
-    "Microservices/Microservices architecture.md",
-    "Microservices/Microservices disadvantages.md",
-    "Microservices/Microservices technologies/Untitled.md"
+    "Microservices/Mricroservices problems/Distributed Transactions.md",
+    "Microservices/Microservices modeling/Alternatives to Bussines Domain Boundaries.md"
   ]
 }
