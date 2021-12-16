@@ -33,7 +33,6 @@ Set not exist as separate type. It has to be implemented or library should be us
 - shadows might be found by shadow lib.
 
 #### IF
-- If condiditon dones't have parantheseis
 - there is ability to declare varaible which will be avalible only in if block.
 	-  `if n := rand.Intn(10); n == 0 {}`
 	- use this feature only for variables which needs this scope
@@ -115,6 +114,7 @@ Set not exist as separate type. It has to be implemented or library should be us
 - You must call recover from within a defer because once a panic happens, only deferred functions are run.
 - Go favors code that explicitly outlines the possible failure conditions over shorter code that handles anything while saying nothing.
 - When you have a stack trace in your error, the output includes the full path to the file on the computer where the program was compiled. If you don’t want to expose the path, use the -trimpath flag when building your code. This replaces the full path with the package.
+- If your goroutine can produce errors, those errors should be tightly coupled with your result type, and passed along through the same lines of communication—just like regular synchronous functions.
 
 #### Repo, modules, package.
 - While you can store more than one module in a repository, it isn’t encouraged. Everything within a module is versioned together. Maintaining two modules in one repository means tracking separate versions for two different projects in a single repository.
@@ -123,6 +123,56 @@ Set not exist as separate type. It has to be implemented or library should be us
 
 #### Concurency 
 - Any time you are reading from a channel that might be closed, use the comma ok idiom to ensure that the channel is still open.
+- Having a default case inside a for-select loop is almost always the wrong thing to do. It will be triggered every time through the loop when there’s nothing to read or write for any of the cases. This makes your for loop run constantly, which uses a great deal of CPU.
+- This doesn’t meant that you shouldn’t ever have channels as function parameters or struct fields. It means that they shouldn’t be exported.
+- There are some exceptions to this rule. If your API is a library with a concurrency helper function (like time.After
+- Any time your goroutine uses a variable whose value might change, pass the current value of the variable into the goroutine.
+- Always Clean Up Your Goroutines. Check if goroutine leak will occur when reading/writing to channels will hand forever.
+- Remember that a read on an open channel pauses until there is data available and that a read on a closed channel always returns the zero value for the channel.
+- ![[Pasted image 20211102125342.png]]
+- Buffered channels are useful when you know how many goroutines you have launched, want to limit the number of goroutines you will launch, or want to limit the amount of work that is queued up.
+- When you need to combine data from multiple concurrent sources, the `select` keyword is great. However, you need to properly handle closed channels. If one of the cases in a `select` is reading a closed channel, it will always be successful, returning the zero value. Every time that case is selected, you need to check to make sure that the value is valid and skip the case. If reads are spaced out, your program is going to waste a lot of time reading junk values.
+- While WaitGroups are handy, they shouldn’t be your first choice when coordinating goroutines. Use them only when you have something to clean up (like closing a channel they all write to) after all of your worker goroutines exit.
+- The Go authors maintain a set of utilities that supplements the standard library. Collectively known as the golang.org/x packages, they include a type called ErrGroup that builds on top of WaitGroup to create a set of goroutines that stop processing when one of them returns an error. Read the ErrGroup documentation to learn more.
+- The general principle is to use as little concurrency as your program needs to be correct.
+- Never try to access a variable from multiple goroutines unless you acquire a mutex for that variable first. It can cause odd errors that are hard to trace. See “Finding Concurrency Problems with the Race Checker” to learn how to detect these problems.
+- Given these limitations, in the rare situations where you need to share a map across multiple goroutines, use a built-in map protected by a sync.RWMutex.
+
+#### context
+- We’ll see this wrapping pattern several times. A context is treated as an immutable instance. Whenever we add information to a context, we do so by wrapping an existing parent context with a child context. This allows us to use contexts to pass information into deeper layers of the code. The context is never used to pass information out of deeper layers to higher layers.
+- There is possiblity to stop whole request group from processing (ussing context cancelation) or there is possiblity to use context a a thread local variable - to manage 
+- The name of the function that creates a context with the value should start with ContextWith. The function that returns the value from the context should have a name that ends with FromContext. 
+- While the value stored in the context can be of any type, there is an idiomatic pattern that’s used to guarantee the key’s uniqueness. `type userKey int` `const key userKey = 1` or use iota.
+
+#### http client
+- There are functions in the net/http package to make GET, HEAD, and POST calls. Avoid using these functions because they use the default client, which means they don’t set a request timeout.
+- Any time you create a context that has an associated cancel function, you must call that cancel function when you are done processing, whether or not your processing ends in an error. If you do not, your program will leak resources (memory and goroutines) and eventually slow down or crash. There is no error if you call the cancel function more than once; any invocation after the first does nothing. The easiest way to make sure you call the cancel function is to use defer to invoke it right after the cancel function is returned.
+
+### Test
+- use t.Cleanup to cleanup single test
+- TestMain for init/clenup
+- testdata folder for store data for tests
+- go caches unchanged and success tests
+- go-cmp for compare data in test
+- use table test when mulitple test cases (loop and invoke t.Run)
+- for visual code coverage `go tool cover -html=c.out`
+- functions  that start with the word Benchmark checks time execution and has testing.B param. inisde loop is used
+- gomock or tesify for golang mocks or define Stubs.
+- httptest and writing own server impl when http is used in code
+- race checker for finding datarace in code.
+
+### Channels
+The goroutine that owns a channel should:
+1.  Instantiate the channel.
+2.  Perform writes, or pass ownership to another goroutine.
+3.  Close the channel.
+4.  Ecapsulate the previous three things in this list and expose them via a reader channel.
+
+Now let’s look at those blocking operations that can occur when reading. As a consumer of a channel, I only have to worry about two things:
+
+Knowing when a channel is closed.
+Responsibly handling blocking for any reason.
+
 
 #### TO READ
 - https://oreil.ly/v_urr

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Linux/Java dump tools.md",
+            "file": "Programming language/Go.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/Java dump tools.md",
+                "file": "Programming language/Go.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "d57610ebc26021f2",
   "lastOpenFiles": [
-    "Linux/Java dump tools.md",
     "Programming language/Go.md",
-    "Microservices/Microservices technologies/Cloud.md",
-    "Microservices/Microservices technologies/Containers.md",
-    "Microservices/Microservices technologies/Distributed Tracing.md",
-    "Microservices/Microservices technologies/Log Aggregation.md",
-    "Microservices/Microservices technologies/Orchiestration.md",
-    "Microservices/Microservices technologies/Streaming.md",
-    "Microservices/Mricroservices problems/Distributed Transactions.md",
-    "Microservices/Microservices modeling/Alternatives to Bussines Domain Boundaries.md"
+    "Pasted image 20211102125342.png",
+    "Microservices/Microservices architecture.md",
+    "Microservices/Microservices disadvantages.md",
+    "Microservices/Microservices advantages.md",
+    "Technologies/Messages brokers/Kafka.md",
+    "Microservices/Microservices modeling/DDD.md",
+    "Microservices/Microservices modeling/Information hiding.md",
+    "Microservices/Microservices modeling/Microservices modeling.md",
+    "Microservices/Microservices modeling/Monolith to Microservices.md"
   ]
 }
